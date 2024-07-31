@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Details - Car Rental</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+        <div class="container">
+            <a class="navbar-brand header-brand" href="index.html">Car Rental</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="details.html">Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reservation.html">Reservation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container py-5">
+        <h2 class="text-center mb-4">Reservation Details</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg">
+                    <div class="card-header text-center bg-warning text-white">
+                        <h4>Reservation Summary</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <p><strong>Car:</strong> <span id="car"></span></p>
+                        <p><strong>Pickup Location:</strong> <span id="pickupLocation"></span></p>
+                        <p><strong>Dropoff Location:</strong> <span id="dropoffLocation"></span></p>
+                        <p><strong>Start Date:</strong> <span id="startDate"></span></p>
+                        <p><strong>End Date:</strong> <span id="endDate"></span></p>
+                        <p><strong>Total Price:</strong> <span id="totalPrice"></span></p>
+                    </div>
+                    <div class="card-footer text-center bg-light">
+                        <p>Thank you for choosing our service!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Rezervasyon bilgilerini buraya ekleyin
+            const reservationDetails = {
+                car: 'Brand 1 - Model 1',
+                pickupLocation: 'Location A',
+                dropoffLocation: 'Location B',
+                startDate: '2023-07-01',
+                endDate: '2023-07-05',
+                totalPrice: '$250.00'
+            };
+
+            document.getElementById('car').textContent = reservationDetails.car;
+            document.getElementById('pickupLocation').textContent = reservationDetails.pickupLocation;
+            document.getElementById('dropoffLocation').textContent = reservationDetails.dropoffLocation;
+            document.getElementById('startDate').textContent = reservationDetails.startDate;
+            document.getElementById('endDate').textContent = reservationDetails.endDate;
+            document.getElementById('totalPrice').textContent = reservationDetails.totalPrice;
+        });
+    </script>
+</body>
+</html>

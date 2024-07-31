@@ -1,0 +1,37 @@
+﻿@model CarRental.Entities.Brand
+
+@{
+    ViewData["Title"] = "Delete Brand";
+}
+
+<div class="text-center">
+    <h1 style="color: blue; font-weight: bold;">Delete Brand</h1>
+    <h4 style="color: gray;">Brand Information</h4>
+    <p style="font-weight: bold; margin-top: 20px;"></p>
+</div>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">
+                Brand ID
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.BrandID)
+            </dd>
+            <dt class="col-sm-4">
+                Brand Name
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.BrandName)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="BrandID" />
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

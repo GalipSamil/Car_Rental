@@ -1,0 +1,86 @@
+﻿@model CarRental.DTOs.CarDTO
+
+@{
+    ViewData["Title"] = "Edit Car";
+}
+
+<style>
+    .main-title {
+        color: #007bff; /* Primary color */
+        font-weight: bold; /* Bold font */
+    }
+
+    .sub-title {
+        color: #6c757d; /* Secondary color */
+    }
+
+    .form-control.custom-width {
+        max-width: 100%; /* Adjust the max-width to control the input width */
+    }
+
+    .btn-spacing {
+        margin-right: 10px; /* Adjust this value to increase/decrease space */
+    }
+</style>
+
+<h1 class="display-4 mb-4 text-center main-title">Edit Car</h1>
+
+<h4 class="h5 mb-4 text-center sub-title">Car Details</h4>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="CarID" />
+            <div class="form-group mb-3">
+                <label asp-for="BrandName" class="control-label">Brand Name</label>
+                <select asp-for="BrandName" class="form-control custom-width" asp-items="ViewBag.Brands"></select>
+                <span asp-validation-for="BrandName" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CarType" class="control-label">Type of Car</label>
+                <input asp-for="CarType" class="form-control custom-width" />
+                <span asp-validation-for="CarType" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CarModel" class="control-label">Car Model</label>
+                <input asp-for="CarModel" class="form-control custom-width" />
+                <span asp-validation-for="CarModel" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CarTransmission" class="control-label">Transmission Type</label>
+                <input asp-for="CarTransmission" class="form-control custom-width" />
+                <span asp-validation-for="CarTransmission" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CarFuel" class="control-label">Fuel Type</label>
+                <input asp-for="CarFuel" class="form-control custom-width" />
+                <span asp-validation-for="CarFuel" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CarMileage" class="control-label">Maximum Allowed Mileage</label>
+                <input asp-for="CarMileage" class="form-control custom-width" />
+                <span asp-validation-for="CarMileage" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CarDailyPrice" class="control-label">Daily Rental Price</label>
+                <input asp-for="CarDailyPrice" class="form-control custom-width" />
+                <span asp-validation-for="CarDailyPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CarLicencePlate" class="control-label">Licence Plate Number</label>
+                <input asp-for="CarLicencePlate" class="form-control custom-width" />
+                <span asp-validation-for="CarLicencePlate" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <div class="d-flex">
+                    <input type="submit" value="Save" class="btn btn-primary btn-spacing" />
+                    <button type="button" class="btn btn-secondary" onclick="location.href='@Url.Action("Index", "Car")'">Back to Car List</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @Html.Partial("_ValidationScriptsPartial")
+}

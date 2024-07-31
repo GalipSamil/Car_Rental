@@ -1,0 +1,49 @@
+﻿@model CarRental.Entities.Profile
+
+@{
+    ViewData["Title"] = "Delete Profile";
+}
+
+<div class="text-center">
+    <h1 style="color: blue; font-weight: bold;">Delete Profil</h1>
+    <h4 style="color: gray;">Profile Information</h4>
+</div>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        
+        <dl class="row">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.ProfileID)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.ProfileID)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.CustomerID)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.FullName)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.FullName)
+            </dd>
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.DriverLicenceNo)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.DriverLicenceNo)
+            </dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ProfileID" />
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-danger me-2" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

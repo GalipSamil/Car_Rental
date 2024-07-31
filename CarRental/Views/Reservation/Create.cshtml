@@ -1,0 +1,85 @@
+﻿@model CarRental.Entities.Reservation
+
+@{
+    ViewData["Title"] = "Create Reservation";
+}
+
+<div class="text-center">
+    <h1 style="color: blue; font-weight: bold;">Create Reservation</h1>
+    <h4 style="color: gray;">Reservation</h4>
+</div>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group mb-3">
+                <label asp-for="CustomerID" class="control-label">Full Name</label>
+                <select asp-for="CustomerID" class="form-control" asp-items="ViewBag.Customers"></select>
+                <span asp-validation-for="CustomerID" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="CarID" class="control-label">Car Model</label>
+                <select asp-for="CarID" class="form-control" asp-items="ViewBag.Cars"></select>
+                <span asp-validation-for="CarID" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="StartDate" class="control-label">Start Date</label>
+                <input asp-for="StartDate" class="form-control" type="datetime-local" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="EndDate" class="control-label">End Date</label>
+                <input asp-for="EndDate" class="form-control" type="datetime-local" />
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="PickupLocationID" class="control-label">Pickup Location Address</label>
+                <select asp-for="PickupLocationID" class="form-control" asp-items="ViewBag.Locations"></select>
+                <span asp-validation-for="PickupLocationID" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DropoffLocationID" class="control-label">Dropoff Location Address</label>
+                <select asp-for="DropoffLocationID" class="form-control" asp-items="ViewBag.Locations"></select>
+                <span asp-validation-for="DropoffLocationID" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="TotalPrice" class="control-label">Total Price</label>
+                <input asp-for="TotalPrice" class="form-control" readonly />
+                <span asp-validation-for="TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary me-2" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            function calculateTotalPrice() {
+                var carId = $("#CarID").val();
+                var startDate = new Date($("#StartDate").val());
+                var endDate = new Date($("#EndDate").val());
+
+                if (carId && startDate && endDate && endDate > startDate) {
+                    var days = (endDate - startDate) / (1000 * 60 * 60 * 24);
+                    $.post("/Reservation/GetDailyPrice", { carId: carId }, function (data) {
+                        if (data.dailyPrice > 0 && days > 0) {
+                            var totalPrice = data.dailyPrice * days;
+                            $("#TotalPrice").val(totalPrice.toFixed(2));
+                        } else {
+                            $("#TotalPrice").val(0);
+                        }
+                    });
+                }
+            }
+
+            $("#CarID, #StartDate, #EndDate").change(calculateTotalPrice);
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CarRental.Entities.Profile>
+
+@{
+    ViewData["Title"] = "Profile List";
+}
+
+<h1>Profil List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfileID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DriverLicenceNo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProfileID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DriverLicenceNo)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProfileID" class="btn btn-secondary btn-sm">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProfileID" class="btn btn-info btn-sm">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProfileID" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+ 

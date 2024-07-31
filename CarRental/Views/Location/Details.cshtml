@@ -1,0 +1,38 @@
+﻿@model CarRental.Entities.Location
+
+@{
+    ViewData["Title"] = "Location Details";
+}
+
+<div class="text-center">
+    <h1 style="color: blue; font-weight: bold;">Location Details</h1>
+    <h4 style="color: gray;">Location Information</h4>
+</div>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.LocationID)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.LocationID)</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.LocationName)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.LocationName)</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.LocationAddress)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.LocationAddress)</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.LocationCity)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.LocationCity)</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.LocationZipCode)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.LocationZipCode)</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.LocationCountry)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.LocationCountry)</dd>
+        </dl>
+        <div class="form-group">
+            <a asp-action="Edit" asp-route-id="@Model.LocationID" class="btn btn-secondary">Edit</a>
+            <a asp-action="Index" class="btn btn-primary ms-2">Back to List</a>
+        </div>
+    </div>
+</div>

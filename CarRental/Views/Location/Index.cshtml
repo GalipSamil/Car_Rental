@@ -1,0 +1,66 @@
+﻿@model IEnumerable<CarRental.Entities.Location>
+
+@{
+    ViewData["Title"] = "Location List";
+}
+
+<h1>Location List</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocationCountry)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationZipCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationCountry)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.LocationID" class="btn btn-secondary btn-sm">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.LocationID" class="btn btn-info btn-sm">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.LocationID" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

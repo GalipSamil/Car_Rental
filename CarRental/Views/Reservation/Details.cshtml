@@ -1,0 +1,47 @@
+﻿@model CarRental.Entities.Reservation
+
+@{
+    ViewData["Title"] = "Reservation Details";
+}
+
+<div class="text-center">
+    <h1 style="color: blue; font-weight: bold;">Reservation Details</h1>
+    <h4 style="color: gray;">Reservation</h4>
+</div>
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Reservation ID</dt>
+            <dd class="col-sm-8">@Model.ReservationID</dd>
+
+            <dt class="col-sm-4">Customer ID</dt>
+            <dd class="col-sm-8">@Model.CustomerID</dd>
+
+            <dt class="col-sm-4">Car ID</dt>
+            <dd class="col-sm-8">@Model.CarID</dd>
+
+            <dt class="col-sm-4">Start Date</dt>
+            <dd class="col-sm-8">@Model.StartDate.ToString("MM/dd/yyyy HH:mm:ss")</dd>
+
+            <dt class="col-sm-4">End Date</dt>
+            <dd class="col-sm-8">@Model.EndDate.ToString("MM/dd/yyyy HH:mm:ss")</dd>
+
+            <dt class="col-sm-4">Total Price</dt>
+            <dd class="col-sm-8">@Model.TotalPrice</dd>
+
+            <dt class="col-sm-4">Pickup Location</dt>
+            <dd class="col-sm-8">@Model.PickupLocationID</dd>
+
+            <dt class="col-sm-4">Dropoff Location</dt>
+            <dd class="col-sm-8">@Model.DropoffLocationID</dd>
+
+            <dt class="col-sm-4">Status</dt>
+            <dd class="col-sm-8">@Model.Status</dd>
+        </dl>
+        <div class="form-group">
+            <a asp-action="Edit" class="btn btn-primary">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+        </div>
+    </div>
+</div>

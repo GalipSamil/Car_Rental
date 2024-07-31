@@ -1,0 +1,68 @@
+﻿@model CarRental.Entities.Car
+
+@{
+    ViewData["Title"] = "Delete Car";
+}
+
+<style>
+    .main-title {
+        color: #007bff; /* Primary color */
+        font-weight: bold;
+    }
+
+    .sub-title {
+        color: #6c757d; /* Secondary color */
+    }
+
+    .confirm-text {
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .btn-spacing {
+        margin-right: 10px; /* Adjust this value to increase/decrease space */
+    }
+</style>
+
+<h1 class="display-4 mb-4 text-center main-title">Delete Car</h1>
+
+<h4 class="confirm-text">Are you sure you want to delete this car?</h4>
+
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Brand</dt>
+            <dd class="col-sm-8">@Model.BrandName</dd>
+
+            <dt class="col-sm-4">Type</dt>
+            <dd class="col-sm-8">@Model.CarType</dd>
+
+            <dt class="col-sm-4">Model</dt>
+            <dd class="col-sm-8">@Model.CarModel</dd>
+
+            <dt class="col-sm-4">Transmission</dt>
+            <dd class="col-sm-8">@Model.CarTransmission</dd>
+
+            <dt class="col-sm-4">Fuel</dt>
+            <dd class="col-sm-8">@Model.CarFuel</dd>
+
+            <dt class="col-sm-4">Mileage</dt>
+            <dd class="col-sm-8">@Model.CarMileage</dd>
+
+            <dt class="col-sm-4">Daily Price</dt>
+            <dd class="col-sm-8">@Model.CarDailyPrice</dd>
+
+            <dt class="col-sm-4">License Plate</dt>
+            <dd class="col-sm-8">@Model.CarLicencePlate</dd>
+        </dl>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="CarID" />
+            <div class="form-group mt-4 text-center">
+                <input type="submit" value="Delete" class="btn btn-danger btn-spacing" />
+                <a asp-action="Index" class="btn btn-secondary">Back to Car List</a>
+            </div>
+        </form>
+    </div>
+</div>

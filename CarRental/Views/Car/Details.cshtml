@@ -1,0 +1,52 @@
+﻿@model CarRental.Entities.Car
+
+@{
+    ViewData["Title"] = "Car Details";
+}
+
+<style>
+    .main-title {
+        color: #007bff; /* Primary color */
+        font-weight: bold; /* Bold font */
+    }
+
+    .sub-title {
+        color: #6c757d; /* Secondary color */
+    }
+
+    .btn-spacing {
+        margin-right: 10px; /* Adjust this value to increase/decrease space */
+    }
+</style>
+
+<h1 class="display-4 mb-4 text-center main-title">Car Details</h1>
+
+<hr />
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Brand</dt>
+            <dd class="col-sm-8">@Model.BrandName</dd>
+            <dt class="col-sm-4">Type</dt>
+            <dd class="col-sm-8">@Model.CarType</dd>
+            <dt class="col-sm-4">Model</dt>
+            <dd class="col-sm-8">@Model.CarModel</dd>
+            <dt class="col-sm-4">Transmission</dt>
+            <dd class="col-sm-8">@Model.CarTransmission</dd>
+            <dt class="col-sm-4">Fuel</dt>
+            <dd class="col-sm-8">@Model.CarFuel</dd>
+            <dt class="col-sm-4">Mileage</dt>
+            <dd class="col-sm-8">@Model.CarMileage</dd>
+            <dt class="col-sm-4">Daily Price</dt>
+            <dd class="col-sm-8">@Model.CarDailyPrice</dd>
+            <dt class="col-sm-4">License Plate</dt>
+            <dd class="col-sm-8">@Model.CarLicencePlate</dd>
+        </dl>
+        <div class="form-group mt-3">
+            <div class="d-flex">
+                <a asp-action="Edit" class="btn btn-primary btn-spacing">Edit</a>
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
